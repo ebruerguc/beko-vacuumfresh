@@ -1363,100 +1363,63 @@ footer {
   color: white;
 }
 
-/* ================= MOBILE FIX ================= */
-@media (max-width: 768px) {
+/* ================= PRODUCT INSPECTION FIX ================= */
 
-  /* GLOBAL */
-  section {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-
-  .section-inner {
-    padding: 0 16px !important;
-  }
-
-  /* NAVBAR */
-  #navbar {
-    padding: 0 16px;
-    height: 56px;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  /* HERO */
-  #hero {
-    padding: 90px 16px 50px;
-  }
-
-  .hero-desc {
-    font-size: 14px;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* GRID */
-  .tanim-grid,
-  .series-grid,
-  .stp-grid,
-  .diff-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* TEXT */
-  .section-title {
-    font-size: 26px !important;
-  }
-
-  p {
-    font-size: 14px !important;
-  }
+.product-series-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
 }
 
-/* hover disable mobile */
-@media (max-width: 768px) {
-  *:hover {
-    transform: none !important;
-  }
+.technical-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+  align-items:center;
 }
 
-/* ================= MOBILE IMPROVEMENTS ================= */
+.hotspot-cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.compare-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
 
 @media (max-width:768px){
 
   .product-series-grid{
-    grid-template-columns:1fr !important;
+    grid-template-columns:1fr;
   }
 
   .technical-grid{
-    grid-template-columns:1fr !important;
+    grid-template-columns:1fr;
   }
 
   .hotspot-cards{
-    grid-template-columns:1fr !important;
+    grid-template-columns:1fr;
   }
 
   .compare-grid{
+    grid-template-columns:1fr;
+  }
+
+  .pump-section{
     grid-template-columns:1fr !important;
+    gap:32px !important;
+  }
+
+  .pump-img-wrap{
+    margin-top:0 !important;
   }
 
   .led-features{
     flex-direction:column;
     align-items:center;
     text-align:center;
-  }
-
-  .hotspot-info-grid{
-    grid-template-columns:1fr !important;
   }
 }
