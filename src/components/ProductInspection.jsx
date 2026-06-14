@@ -1,449 +1,161 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import productDetail from "../assets/product-detail.png";
-
-const hotspots = [
-    {
-        id: 1,
-        title: "Vakum Valfi",
-        text: "Pompanın yerleştiği özel hava valfi, kabın içindeki havanın tahliye edilmesini sağlar.",
-        top: "31%",
-        left: "74%",
-    },
-    {
-        id: 2,
-        title: "Akıllı LED Ekran",
-        text: "Gün, saat, dakika ve sıcaklık bilgisini göstererek tazelik sürecini görünür hale getirir.",
-        top: "72%",
-        left: "52%",
-    },
-    {
-        id: 3,
-        title: "Sızdırmaz Kapak",
-        text: "Kapak formu ve conta sistemi, vakum etkisinin korunmasına yardımcı olur.",
-        top: "47%",
-        left: "35%",
-    },
-    {
-        id: 4,
-        title: "Dikey Vakum Pompası",
-        text: "Beko logolu kompakt pompa, kapaktaki valfe oturarak pratik vakumlama deneyimi sunar.",
-        top: "76%",
-        left: "89%",
-    },
-];
+import React, { useState } from 'react';
+import glass1L from '../assets/glass-1l.png';
+import glass3L from '../assets/glass-3l.png';
+import glass5L from '../assets/glass-5l.png';
+import thermos from '../assets/thermos.png';
+import explodedGlass from '../assets/exploded-glass.jpg';
+import explodedThermos from '../assets/exploded-thermos.jpg';
+import productTopView from '../assets/product-top-view.jpg';
+import ledGlass from '../assets/led-glass.png';
+import ledThermos from '../assets/led-thermos.png';
 
 const ProductInspection = () => {
-    const [active, setActive] = useState(hotspots[1]);
-    const [lens, setLens] = useState({ x: 50, y: 50 });
-    const [showLens, setShowLens] = useState(false);
+  const [activeHotspot, setActiveHotspot] = useState(null);
 
-    const handleMouseMove = (e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
+  const hotspotData = [
+    { id: 1, title: 'Hava valfi', desc: 'Vakum işleminin gerçekleşmesini sağlar.', top: '35%', left: '74%' }, 
+    { id: 2, title: 'LED ekran', desc: 'Saklama süresini ve durum bilgisini gösterir.', top: '68%', left: '48%' }, 
+    { id: 3, title: 'Akıllı kapak modülü', desc: 'Elektronik bileşenleri ve güç sistemini içerir.', top: '30%', left: '35%' }, 
+    { id: 4, title: 'Vakum pompası', desc: 'Harici olarak çalışan, havayı hazneden çeken ana ünitedir.', top: '65%', left: '92%' } 
+  ];
 
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
+  return (
+    <section id="urun-detayi">
+      <div className="section-inner">
+        <h2 className="section-title reveal">Ürün Serisi</h2>
+        <p className="section-sub reveal">VacuumFresh farklı kullanım ihtiyaçlarına göre üç cam ve bir termos versiyonu sunar:</p>
 
-        setLens({
-            x: Math.min(100, Math.max(0, x)),
-            y: Math.min(100, Math.max(0, y)),
-        });
-    };
+        <div className="series-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
+          <div className="series-card reveal visible">
+            <img className="series-card-img" src={glass1L} alt="1 Litre Cam" />
+            <div className="series-card-body">
+              <div className="series-card-size">1 Litre</div>
+              <div className="series-card-name">VacuumFresh Compact</div>
+              <p className="series-card-desc">Günlük küçük porsiyonlar için.</p>
+            </div>
+          </div>
+          
+          <div className="series-card reveal reveal-delay-1 visible">
+            <img className="series-card-img" src={glass3L} alt="3 Litre Cam" />
+            <div className="series-card-body">
+              <div className="series-card-size">3 Litre</div>
+              <div className="series-card-name">VacuumFresh Standard</div>
+              <p className="series-card-desc">Genel kullanım için dengeli kapasite.</p>
+            </div>
+          </div>
+          
+          <div className="series-card reveal reveal-delay-2 visible">
+            <img className="series-card-img" src={glass5L} alt="5 Litre Cam" />
+            <div className="series-card-body">
+              <div className="series-card-size">5 Litre</div>
+              <div className="series-card-name">VacuumFresh Family</div>
+              <p className="series-card-desc">Aile kullanımı için geniş hacim.</p>
+            </div>
+          </div>
 
-    return (
-        <StyledWrapper>
-            <section className="inspection-section" id="detay">
-                <div className="inspection-container">
-                    <div className="section-header">
-                        <span>Ürün Detayları</span>
-                        <h2>
-                            VacuumFresh’i <strong>yakından incele.</strong>
-                        </h2>
-                        <p>
-                            Kapak, LED ekran, vakum valfi ve pompa yapısıyla akıllı saklama
-                            deneyimini oluşturan detayları keşfet.
-                        </p>
-                    </div>
+          <div className="series-card reveal reveal-delay-3 visible">
+            <img className="series-card-img" src={thermos} alt="3 Litre Termos" />
+            <div className="series-card-body">
+              <div className="series-card-size">3 Litre</div>
+              <div className="series-card-name">VacuumFresh Thermo</div>
+              <p className="series-card-desc">Isı korumalı çift katmanlı termos yapı.</p>
+            </div>
+          </div>
+        </div>
 
-                    <div
-                        className="product-stage"
-                        onMouseMove={handleMouseMove}
-                        onMouseEnter={() => setShowLens(true)}
-                        onMouseLeave={() => setShowLens(false)}
-                    >
-                        <img src={productDetail} alt="Beko VacuumFresh Ürün Detayı" />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', marginTop: '60px' }}>
+          
+          <div className="reveal" style={{ padding: '40px', background: 'var(--white)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--gray-light)' }}>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', marginBottom: '24px' }}>Teknik Bileşenler (Cam Serisi)</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '40px', alignItems: 'center' }}>
+              <img src={explodedGlass} alt="Cam Katmanlar" style={{ width: '100%', borderRadius: '12px' }} />
+              <ul className="stp-list" style={{ fontSize: '16px' }}>
+                <li>Vakum valfi sistemi</li>
+                <li>OLED LED ekran</li>
+                <li>ESP32 tabanlı kontrol kartı</li>
+                <li>Şarj edilebilir pil sistemi</li>
+                <li>Borosilikat cam gövde</li>
+              </ul>
+            </div>
+          </div>
 
-                        {showLens && (
-                            <div
-                                className="magnifier"
-                                style={{
-                                    left: `${lens.x}%`,
-                                    top: `${lens.y}%`,
-                                    backgroundImage: `url(${productDetail})`,
-                                    backgroundPosition: `${lens.x}% ${lens.y}%`,
-                                }}
-                            />
-                        )}
+          <div className="reveal" style={{ padding: '40px', background: 'var(--white)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--gray-light)' }}>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', marginBottom: '24px' }}>Teknik Bileşenler (Termos Serisi)</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '40px', alignItems: 'center' }}>
+              <img src={explodedThermos} alt="Termos Katmanlar" style={{ width: '100%', borderRadius: '12px', background: '#fff' }} />
+              <ul className="stp-list" style={{ fontSize: '16px' }}>
+                <li>Sızdırmaz valf sistemi</li>
+                <li>Sıcaklık sensörü</li>
+                <li>OLED ekran</li>
+                <li>Metal çift katman gövde</li>
+              </ul>
+            </div>
+          </div>
 
-                        {hotspots.map((item) => (
-                            <button
-                                key={item.id}
-                                className={`hotspot ${active.id === item.id ? "active" : ""}`}
-                                style={{ top: item.top, left: item.left }}
-                                onMouseEnter={() => setActive(item)}
-                                onClick={() => setActive(item)}
-                                aria-label={item.title}
-                            >
-                                <span>{item.id}</span>
-                            </button>
-                        ))}
+        </div>
 
-                        <div className="floating-detail">
-                            <div className="detail-number">0{active.id}</div>
-                            <div>
-                                <h3>{active.title}</h3>
-                                <p>{active.text}</p>
-                            </div>
-                        </div>
-                    </div>
+        {/* YAKINDAN İNCELE BÖLÜMÜ */}
+        <div className="reveal" style={{ marginTop: '80px', paddingTop: '80px', borderTop: '1px solid var(--gray-mid)' }}>
+          <h3 className="section-title" style={{ textAlign: 'center' }}>Ürünü Yakından İnceleyin</h3>
+          <p className="section-sub" style={{ textAlign: 'center', margin: '0 auto 48px' }}>Sistem dört ana parçadan oluşur:</p>
+          
+          <div style={{ position: 'relative', width: '100%', maxWidth: '1000px', margin: '0 auto 60px' }}>
+            <img src={productTopView} alt="Üstten Görünüm" style={{ width: '100%', borderRadius: '16px', boxShadow: 'var(--shadow-md)', display: 'block' }} />
+            
+            {hotspotData.map(spot => (
+              <div 
+                key={spot.id}
+                className="hotspot" 
+                style={{ top: spot.top, left: spot.left, transform: activeHotspot === spot.id ? 'scale(1.2)' : 'scale(1)' }} 
+                onMouseEnter={() => setActiveHotspot(spot.id)}
+                onMouseLeave={() => setActiveHotspot(null)}
+              >
+                <div className="hotspot-ring" style={{ display: activeHotspot === spot.id ? 'block' : 'none' }}></div>
+                <span className="hotspot-icon">{spot.id}</span>
+              </div>
+            ))}
+          </div>
 
-                    <div className="detail-tabs">
-                        {hotspots.map((item) => (
-                            <button
-                                key={item.id}
-                                onClick={() => setActive(item)}
-                                className={active.id === item.id ? "selected" : ""}
-                            >
-                                <span>0{item.id}</span>
-                                {item.title}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        </StyledWrapper>
-    );
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', marginBottom: '80px' }}>
+            {hotspotData.map(spot => (
+              <div 
+                key={spot.id}
+                onMouseEnter={() => setActiveHotspot(spot.id)}
+                onMouseLeave={() => setActiveHotspot(null)}
+                style={{ 
+                  background: 'var(--white)', 
+                  padding: '24px', 
+                  borderRadius: '16px', 
+                  border: `2px solid ${activeHotspot === spot.id ? 'var(--beko-blue)' : 'var(--gray-light)'}`,
+                  transform: activeHotspot === spot.id ? 'translateY(-5px)' : 'none',
+                  transition: 'all 0.3s ease',
+                  boxShadow: activeHotspot === spot.id ? 'var(--shadow-md)' : 'none',
+                  cursor: 'pointer'
+                }}
+              >
+                <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '16px', color: 'var(--beko-dark)', marginBottom: '12px' }}>{spot.id}. {spot.title}</h4>
+                <p style={{ fontSize: '13px', color: 'var(--gray-text)', lineHeight: '1.6' }}>{spot.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+            <div style={{ background: 'var(--white)', padding: '32px', borderRadius: '16px', border: '1px solid var(--gray-light)', boxShadow: 'var(--shadow-sm)' }}>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', color: 'var(--beko-dark)', marginBottom: '8px', textAlign: 'center' }}>Borosilikat Cam Serisi</h4>
+              <p style={{ fontSize: '13px', color: 'var(--gray-text)', textAlign: 'center', marginBottom: '24px' }}>LED Ekran Arayüzü</p>
+              <img src={ledGlass} alt="Cam LED Ekran" style={{ width: '100%', borderRadius: '8px' }} />
+            </div>
+            <div style={{ background: 'var(--white)', padding: '32px', borderRadius: '16px', border: '1px solid var(--gray-light)', boxShadow: 'var(--shadow-sm)' }}>
+              <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', color: 'var(--beko-dark)', marginBottom: '8px', textAlign: 'center' }}>Termos Serisi</h4>
+              <p style={{ fontSize: '13px', color: 'var(--gray-text)', textAlign: 'center', marginBottom: '24px' }}>LED Ekran Arayüzü (Derece Göstergeli)</p>
+              <img src={ledThermos} alt="Termos LED Ekran" style={{ width: '100%', borderRadius: '8px' }} />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
 };
-
-const StyledWrapper = styled.div`
-  .inspection-section {
-    width: 100%;
-    background: linear-gradient(180deg, #ffffff 0%, #f9f8f6 100%);
-    padding: 120px 24px;
-    overflow: hidden;
-  }
-
-  .inspection-container {
-    width: min(1180px, 100%);
-    margin: 0 auto;
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 56px;
-  }
-
-  .section-header span {
-    display: inline-flex;
-    padding: 9px 16px;
-    border-radius: 999px;
-    background: rgba(0, 137, 207, 0.1);
-    color: #0089cf;
-    font-size: 14px;
-    font-weight: 800;
-    margin-bottom: 20px;
-  }
-
-  .section-header h2 {
-    margin: 0;
-    color: #0b2240;
-    font-size: clamp(38px, 5vw, 68px);
-    line-height: 1.05;
-    letter-spacing: -2px;
-    font-weight: 850;
-  }
-
-  .section-header h2 strong {
-    color: #0089cf;
-    font-weight: 850;
-  }
-
-  .section-header p {
-    max-width: 680px;
-    margin: 20px auto 0;
-    color: #212529;
-    font-size: 17px;
-    line-height: 1.75;
-  }
-
-  .product-stage {
-    position: relative;
-    width: 100%;
-    min-height: 560px;
-    border-radius: 42px;
-    overflow: hidden;
-    background: #f9f8f6;
-    box-shadow: 0 34px 90px rgba(11, 34, 64, 0.13);
-    border: 1px solid rgba(11, 34, 64, 0.06);
-    cursor: crosshair;
-  }
-
-  .product-stage::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 20% 20%, rgba(0, 137, 207, 0.12), transparent 28%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  .product-stage img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transform: scale(1.01);
-  }
-
-  .magnifier {
-    position: absolute;
-    width: 170px;
-    height: 170px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 5;
-    pointer-events: none;
-    background-size: 230%;
-    background-repeat: no-repeat;
-    border: 3px solid rgba(255, 255, 255, 0.95);
-    box-shadow:
-      0 24px 55px rgba(11, 34, 64, 0.22),
-      inset 0 0 0 1px rgba(0, 137, 207, 0.25);
-  }
-
-  .hotspot {
-    position: absolute;
-    z-index: 6;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(255, 255, 255, 0.82);
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    box-shadow: 0 18px 38px rgba(11, 34, 64, 0.18);
-    backdrop-filter: blur(12px);
-    transition: all 0.25s ease;
-  }
-
-  .hotspot::before {
-    content: "";
-    position: absolute;
-    width: 62px;
-    height: 62px;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 137, 207, 0.34);
-    animation: pulse 1.9s infinite ease-out;
-  }
-
-  .hotspot span {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: #0089cf;
-    color: #ffffff;
-    display: grid;
-    place-items: center;
-    font-size: 13px;
-    font-weight: 850;
-    box-shadow: 0 0 18px rgba(0, 137, 207, 0.7);
-  }
-
-  .hotspot:hover,
-  .hotspot.active {
-    transform: translate(-50%, -50%) scale(1.14);
-  }
-
-  .hotspot.active span {
-    background: #28ff5f;
-    color: #0b2240;
-    box-shadow: 0 0 22px rgba(40, 255, 95, 0.8);
-  }
-
-  @keyframes pulse {
-    0% {
-      transform: scale(0.65);
-      opacity: 0.85;
-    }
-
-    100% {
-      transform: scale(1.35);
-      opacity: 0;
-    }
-  }
-
-  .floating-detail {
-    position: absolute;
-    right: 34px;
-    bottom: 34px;
-    z-index: 7;
-    width: min(390px, calc(100% - 68px));
-    display: grid;
-    grid-template-columns: 58px 1fr;
-    gap: 18px;
-    padding: 22px;
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 28px 70px rgba(11, 34, 64, 0.18);
-    backdrop-filter: blur(18px);
-  }
-
-  .detail-number {
-    width: 52px;
-    height: 52px;
-    border-radius: 18px;
-    display: grid;
-    place-items: center;
-    background: #0089cf;
-    color: white;
-    font-size: 15px;
-    font-weight: 900;
-    box-shadow: 0 15px 30px rgba(0, 137, 207, 0.28);
-  }
-
-  .floating-detail h3 {
-    margin: 0;
-    color: #0b2240;
-    font-size: 24px;
-    letter-spacing: -0.6px;
-  }
-
-  .floating-detail p {
-    margin: 9px 0 0;
-    color: rgba(33, 37, 41, 0.72);
-    font-size: 14px;
-    line-height: 1.65;
-  }
-
-  .detail-tabs {
-    margin-top: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
-  }
-
-  .detail-tabs button {
-    border: 1px solid rgba(11, 34, 64, 0.08);
-    background: rgba(255, 255, 255, 0.85);
-    color: #2d3748;
-    border-radius: 20px;
-    padding: 18px;
-    text-align: left;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 800;
-    box-shadow: 0 14px 34px rgba(11, 34, 64, 0.05);
-    transition: all 0.25s ease;
-  }
-
-  .detail-tabs button span {
-    display: block;
-    color: #0089cf;
-    font-size: 12px;
-    margin-bottom: 7px;
-    font-weight: 900;
-  }
-
-  .detail-tabs button:hover,
-  .detail-tabs button.selected {
-    background: #0b2240;
-    color: white;
-    transform: translateY(-4px);
-    box-shadow: 0 22px 46px rgba(11, 34, 64, 0.18);
-  }
-
-  .detail-tabs button.selected span,
-  .detail-tabs button:hover span {
-    color: #28ff5f;
-  }
-
-  @media (max-width: 980px) {
-    .inspection-section {
-      padding: 90px 18px;
-    }
-
-    .product-stage {
-      min-height: 460px;
-      border-radius: 32px;
-    }
-
-    .detail-tabs {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .magnifier {
-      display: none;
-    }
-  }
-
-  @media (max-width: 620px) {
-    .product-stage {
-      min-height: 340px;
-      border-radius: 24px;
-      cursor: default;
-    }
-
-    .hotspot {
-      width: 34px;
-      height: 34px;
-    }
-
-    .hotspot span {
-      width: 23px;
-      height: 23px;
-      font-size: 11px;
-    }
-
-    .hotspot::before {
-      width: 48px;
-      height: 48px;
-    }
-
-    .floating-detail {
-      position: relative;
-      right: auto;
-      bottom: auto;
-      width: 100%;
-      margin-top: 18px;
-      grid-template-columns: 48px 1fr;
-      padding: 18px;
-    }
-
-    .detail-number {
-      width: 44px;
-      height: 44px;
-      border-radius: 15px;
-    }
-
-    .floating-detail h3 {
-      font-size: 21px;
-    }
-
-    .detail-tabs {
-      grid-template-columns: 1fr;
-    }
-
-    .section-header p {
-      font-size: 15px;
-    }
-  }
-`;
 
 export default ProductInspection;
