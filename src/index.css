@@ -1216,3 +1216,34 @@ footer {
   font-size: 13px;
   font-weight: 500;
 }
+
+/* Mobil Uyum Düzenlemeleri */
+@media (max-width: 768px) {
+  /* Grid yapısını dikeyye çevir */
+  .pump-section {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+    margin-top: 40px !important;
+  }
+
+  /* Resmi düzelt ve margin boşluğunu kaldır */
+  .pump-img-wrap {
+    margin-top: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Kartları tek sütuna indir */
+  .diff-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Yazı boyutlarını küçült */
+  .section-title {
+    font-size: 28px !important;
+  }
+
+  /* Adımlar kısmını daralt */
+  .pump-step {
+    padding: 15px !important;
+  }
+}
