@@ -621,7 +621,7 @@ section { scroll-margin-top: 68px; }
 /* Series grid */
 .series-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   margin-bottom: 80px;
 }
@@ -1364,11 +1364,21 @@ footer {
 }
 
 /* ================= PRODUCT INSPECTION FIX ================= */
+@media (max-width:768px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .nav-container{
+    justify-content:center;
+  }
+}
 
 .product-series-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
+  /*display:grid;
+  grid-template-columns:repeat(4,1fr);*/
+  gap:24px;
 }
 
 .technical-grid{
@@ -1389,6 +1399,7 @@ footer {
   grid-template-columns:1fr 1fr;
   gap:40px;
 }
+
 
 @media (max-width:768px){
 
@@ -1415,11 +1426,5 @@ footer {
 
   .pump-img-wrap{
     margin-top:0 !important;
-  }
-
-  .led-features{
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
   }
 }

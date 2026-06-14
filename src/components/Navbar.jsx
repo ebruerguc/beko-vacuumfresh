@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import bekoLogo from '../assets/beko-logo.png';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,23 +23,17 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToTop = (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <nav id="navbar" className={scrolled ? 'scrolled' : ''}>
       <div className="nav-inner">
-        <div className="nav-brand">
-          <a href="https://www.beko.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
-            <img src={bekoLogo} alt="Beko Logo" style={{ height: '28px', objectFit: 'contain' }} />
-          </a>
+        <a className="nav-brand" href="#hero">
+          <svg className="nav-logo" viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="38" fontFamily="Arial, sans-serif" fontSize="40" fontWeight="900" fill="#0089CF">beko</text>
+            <line x1="0" y1="46" x2="115" y2="42" stroke="#0089CF" strokeWidth="3" strokeLinecap="round"/>
+          </svg>
           <div className="nav-divider"></div>
-          <a href="#hero" onClick={scrollToTop} className="nav-product-name" style={{ cursor: 'pointer', textDecoration: 'none' }}>
-            VacuumFresh
-          </a>
-        </div>
+          <span className="nav-product-name">VacuumFresh</span>
+        </a>
         <ul className="nav-links">
           <li><a href="#hero" className={activeLink === 'hero' ? 'active' : ''}>Anasayfa</a></li>
           <li><a href="#urun-tanimi" className={activeLink === 'urun-tanimi' ? 'active' : ''}>Ürün Tanımı</a></li>

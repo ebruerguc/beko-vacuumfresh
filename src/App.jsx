@@ -55,6 +55,7 @@ function App() {
               </div>
             </div>
 
+            
             <div className="stp-card reveal reveal-delay-1" style={{ background: 'var(--white)' }}>
               <div className="stp-card-header" style={{ background: '#0C2D55' }}>
                 <div className="stp-card-header-text">

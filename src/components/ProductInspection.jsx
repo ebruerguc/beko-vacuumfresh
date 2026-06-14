@@ -12,9 +12,10 @@ import ledThermos from '../assets/led-thermos.png';
 const ProductInspection = () => {
   const [activeHotspot, setActiveHotspot] = useState(null);
 
+  // 2 numaralı hotspot konumu LED ekrana yaklaştırıldı ancak kapatmayacak şekilde ayarlandı
   const hotspotData = [
     { id: 1, title: 'Hava valfi', desc: 'Vakum işleminin gerçekleşmesini sağlar.', top: '35%', left: '74%' }, 
-    { id: 2, title: 'LED ekran', desc: 'Saklama süresini ve durum bilgisini gösterir.', top: '68%', left: '48%' }, 
+    { id: 2, title: 'LED ekran', desc: 'Saklama süresini ve durum bilgisini gösterir.', top: '68%', left: '48%' }, // Güncellenen kısım
     { id: 3, title: 'Akıllı kapak modülü', desc: 'Elektronik bileşenleri ve güç sistemini içerir.', top: '30%', left: '35%' }, 
     { id: 4, title: 'Vakum pompası', desc: 'Harici olarak çalışan, havayı hazneden çeken ana ünitedir.', top: '65%', left: '92%' } 
   ];
@@ -22,15 +23,16 @@ const ProductInspection = () => {
   return (
     <section id="urun-detayi">
       <div className="section-inner">
+        <span className="section-tag reveal">Ürün Serisi</span>
         <h2 className="section-title reveal">Ürün Serisi</h2>
-        <p className="section-sub reveal">VacuumFresh farklı kullanım ihtiyaçlarına göre üç cam ve bir termos versiyonu sunar:</p>
+        <p className="section-sub reveal">Vacuum Fresh farklı kullanım ihtiyaçlarına göre üç cam ve bir termos versiyonu sunar:</p>
 
-        <div className="series-grid product-series-grid">
+        <div className="series-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
           <div className="series-card reveal visible">
             <img className="series-card-img" src={glass1L} alt="1 Litre Cam" />
             <div className="series-card-body">
               <div className="series-card-size">1 Litre</div>
-              <div className="series-card-name">VacuumFresh Compact</div>
+              <div className="series-card-name">Vacuum Fresh Compact</div>
               <p className="series-card-desc">Günlük küçük porsiyonlar için.</p>
             </div>
           </div>
@@ -39,7 +41,7 @@ const ProductInspection = () => {
             <img className="series-card-img" src={glass3L} alt="3 Litre Cam" />
             <div className="series-card-body">
               <div className="series-card-size">3 Litre</div>
-              <div className="series-card-name">VacuumFresh Standard</div>
+              <div className="series-card-name">Vacuum Fresh Standard</div>
               <p className="series-card-desc">Genel kullanım için dengeli kapasite.</p>
             </div>
           </div>
@@ -48,7 +50,7 @@ const ProductInspection = () => {
             <img className="series-card-img" src={glass5L} alt="5 Litre Cam" />
             <div className="series-card-body">
               <div className="series-card-size">5 Litre</div>
-              <div className="series-card-name">VacuumFresh Family</div>
+              <div className="series-card-name">Vacuum Fresh Family</div>
               <p className="series-card-desc">Aile kullanımı için geniş hacim.</p>
             </div>
           </div>
@@ -57,7 +59,7 @@ const ProductInspection = () => {
             <img className="series-card-img" src={thermos} alt="3 Litre Termos" />
             <div className="series-card-body">
               <div className="series-card-size">3 Litre</div>
-              <div className="series-card-name">VacuumFresh Thermo</div>
+              <div className="series-card-name">Vacuum Fresh Thermo</div>
               <p className="series-card-desc">Isı korumalı çift katmanlı termos yapı.</p>
             </div>
           </div>
@@ -67,7 +69,7 @@ const ProductInspection = () => {
           
           <div className="reveal" style={{ padding: '40px', background: 'var(--white)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--gray-light)' }}>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', marginBottom: '24px' }}>Teknik Bileşenler (Cam Serisi)</h3>
-            <div className="technical-grid">
+            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '40px', alignItems: 'center' }}>
               <img src={explodedGlass} alt="Cam Katmanlar" style={{ width: '100%', borderRadius: '12px' }} />
               <ul className="stp-list" style={{ fontSize: '16px' }}>
                 <li>Vakum valfi sistemi</li>
@@ -81,7 +83,7 @@ const ProductInspection = () => {
 
           <div className="reveal" style={{ padding: '40px', background: 'var(--white)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--gray-light)' }}>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', marginBottom: '24px' }}>Teknik Bileşenler (Termos Serisi)</h3>
-            <div className="technical-grid">
+            <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '40px', alignItems: 'center' }}>
               <img src={explodedThermos} alt="Termos Katmanlar" style={{ width: '100%', borderRadius: '12px', background: '#fff' }} />
               <ul className="stp-list" style={{ fontSize: '16px' }}>
                 <li>Sızdırmaz valf sistemi</li>
@@ -116,7 +118,7 @@ const ProductInspection = () => {
             ))}
           </div>
 
-          <div className="hotspot-cards" style={{ marginBottom: '80px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', marginBottom: '80px' }}>
             {hotspotData.map(spot => (
               <div 
                 key={spot.id}
@@ -139,7 +141,7 @@ const ProductInspection = () => {
             ))}
           </div>
 
-          <div className="compare-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
             <div style={{ background: 'var(--white)', padding: '32px', borderRadius: '16px', border: '1px solid var(--gray-light)', boxShadow: 'var(--shadow-sm)' }}>
               <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', color: 'var(--beko-dark)', marginBottom: '8px', textAlign: 'center' }}>Borosilikat Cam Serisi</h4>
               <p style={{ fontSize: '13px', color: 'var(--gray-text)', textAlign: 'center', marginBottom: '24px' }}>LED Ekran Arayüzü</p>
