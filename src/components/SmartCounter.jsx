@@ -104,7 +104,7 @@ const SmartCounter = () => {
               <button className="led-btn led-btn-start" onClick={handleStart}>Takibi Başlat</button>
               <button className="led-btn led-btn-reset" onClick={handleReset}>Sıfırla</button>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '24px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '16px' }}>
+            <div className="led-features" style={{marginTop: '24px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '16px'}}>
               <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', fontWeight: '600' }}>• Saklama süresi takibi</span>
               <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', fontWeight: '600' }}>• Anlık durum bilgisi</span>
               <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', fontWeight: '600' }}>• Basit arayüz</span>
