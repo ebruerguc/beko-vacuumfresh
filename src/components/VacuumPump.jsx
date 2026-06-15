@@ -6,7 +6,6 @@ const VacuumPump = () => {
     <div className="section-inner">
       <div className="pump-section reveal" style={{ marginTop: '80px', display: 'grid', gridTemplateColumns: '0.8fr 1.2fr', gap: '60px', alignItems: 'start' }}>
         
-        {/* marginTop: '165px' yapılarak resim tam olarak "Yerleştir, Vakumla, Kilitle" adımlarının hizasına indirildi */}
         <div className="pump-img-wrap" style={{ padding: '0', background: 'transparent', border: 'none', borderRadius: '24px', overflow: 'hidden', display: 'block', marginTop: '165px', boxShadow: 'var(--shadow-md)' }}>
           <img className="pump-img" src={vacuumPumpImg} alt="VacuumFresh Vakum Pompası" style={{ width: '100%', height: 'auto', display: 'block', margin: '0' }} />
         </div>
@@ -15,7 +14,7 @@ const VacuumPump = () => {
           <div>
             <span className="section-tag">Vakum Pompası</span>
             <h3 className="section-title" style={{ fontSize: 'clamp(24px, 3vw, 38px)', marginBottom: '12px' }}>Vakum Pompası</h3>
-            <p style={{ fontSize: '15px', color: 'var(--gray-text)', lineHeight: '1.7', marginBottom: '36px' }}>Beko tarafından kullanılan harici vakum pompası, kapla birlikte çalışır ancak bağımsız bir ünitedir.</p>
+            <p style={{ fontSize: '15px', color: 'var(--gray-text)', lineHeight: '1.7', marginBottom: '36px' }}>Beko markalı harici vakum pompası, kapla birlikte çalışır ancak bağımsız bir ünitedir.</p>
             
             <div className="pump-steps">
               <div className="pump-step" style={{ padding: '20px', borderRadius: '16px' }}>
@@ -66,7 +65,7 @@ const VacuumPump = () => {
       <div style={{ marginTop: '100px', paddingBottom: '120px' }}>
         <span className="section-tag reveal">Sistem Yaklaşımı</span>
         <h3 className="section-title reveal" style={{ fontSize: 'clamp(24px, 3vw, 38px)', marginBottom: '12px' }}>Sistem Yaklaşımı</h3>
-        <p className="section-sub reveal">Vacuum Fresh yalnızca bir saklama kabı değildir. Donanım ve yazılımın birlikte çalıştığı bir mutfak sistemidir.</p>
+        <p className="section-sub reveal">VacuumFresh yalnızca bir saklama kabı değildir. Donanım ve yazılımın birlikte çalıştığı bir mutfak sistemidir.</p>
         
         <div className="diff-grid">
           <div className="diff-card reveal">

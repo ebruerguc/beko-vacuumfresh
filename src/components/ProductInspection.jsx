@@ -12,10 +12,10 @@ import ledThermos from '../assets/led-thermos.png';
 const ProductInspection = () => {
   const [activeHotspot, setActiveHotspot] = useState(null);
 
-  // 2 numaralı hotspot konumu LED ekrana yaklaştırıldı ancak kapatmayacak şekilde ayarlandı
+  
   const hotspotData = [
     { id: 1, title: 'Hava valfi', desc: 'Vakum işleminin gerçekleşmesini sağlar.', top: '35%', left: '74%' }, 
-    { id: 2, title: 'LED ekran', desc: 'Saklama süresini ve durum bilgisini gösterir.', top: '68%', left: '48%' }, // Güncellenen kısım
+    { id: 2, title: 'LED ekran', desc: 'Saklama süresini ve durum bilgisini gösterir.', top: '68%', left: '48%' }, 
     { id: 3, title: 'Akıllı kapak modülü', desc: 'Elektronik bileşenleri ve güç sistemini içerir.', top: '30%', left: '35%' }, 
     { id: 4, title: 'Vakum pompası', desc: 'Harici olarak çalışan, havayı hazneden çeken ana ünitedir.', top: '65%', left: '92%' } 
   ];
@@ -25,14 +25,14 @@ const ProductInspection = () => {
       <div className="section-inner">
         <span className="section-tag reveal">Ürün Serisi</span>
         <h2 className="section-title reveal">Ürün Serisi</h2>
-        <p className="section-sub reveal">Vacuum Fresh farklı kullanım ihtiyaçlarına göre üç cam ve bir termos versiyonu sunar:</p>
+        <p className="section-sub reveal">VacuumFresh farklı kullanım ihtiyaçlarına göre üç cam ve bir termos versiyonu sunar:</p>
 
         <div className="series-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
           <div className="series-card reveal visible">
             <img className="series-card-img" src={glass1L} alt="1 Litre Cam" />
             <div className="series-card-body">
               <div className="series-card-size">1 Litre</div>
-              <div className="series-card-name">Vacuum Fresh Compact</div>
+              <div className="series-card-name">VacuumFresh Compact</div>
               <p className="series-card-desc">Günlük küçük porsiyonlar için.</p>
             </div>
           </div>
@@ -41,7 +41,7 @@ const ProductInspection = () => {
             <img className="series-card-img" src={glass3L} alt="3 Litre Cam" />
             <div className="series-card-body">
               <div className="series-card-size">3 Litre</div>
-              <div className="series-card-name">Vacuum Fresh Standard</div>
+              <div className="series-card-name">VacuumFresh Standard</div>
               <p className="series-card-desc">Genel kullanım için dengeli kapasite.</p>
             </div>
           </div>
@@ -50,7 +50,7 @@ const ProductInspection = () => {
             <img className="series-card-img" src={glass5L} alt="5 Litre Cam" />
             <div className="series-card-body">
               <div className="series-card-size">5 Litre</div>
-              <div className="series-card-name">Vacuum Fresh Family</div>
+              <div className="series-card-name">VacuumFresh Family</div>
               <p className="series-card-desc">Aile kullanımı için geniş hacim.</p>
             </div>
           </div>
@@ -59,7 +59,7 @@ const ProductInspection = () => {
             <img className="series-card-img" src={thermos} alt="3 Litre Termos" />
             <div className="series-card-body">
               <div className="series-card-size">3 Litre</div>
-              <div className="series-card-name">Vacuum Fresh Thermo</div>
+              <div className="series-card-name">VacuumFresh Thermo</div>
               <p className="series-card-desc">Isı korumalı çift katmanlı termos yapı.</p>
             </div>
           </div>

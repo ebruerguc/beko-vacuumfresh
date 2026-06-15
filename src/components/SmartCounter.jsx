@@ -50,7 +50,7 @@ const SmartCounter = () => {
           <div className="tanim-left reveal">
             <span className="section-tag">Ürün Tanımı</span>
             <h2 className="section-title">Ürün Tanımı</h2>
-            <p className="section-sub">Günlük yaşamda gıdalar çoğunlukla plansız tüketim ve yanlış saklama nedeniyle bozulmaktadır. Mevcut saklama kapları yalnızca fiziksel koruma sağlar, ancak süre takibi sunmaz. Vacuum Fresh bu sorunu iki katmanda çözer:</p>
+            <p className="section-sub">Günlük yaşamda gıdalar çoğunlukla plansız tüketim ve yanlış saklama nedeniyle bozulmaktadır. Mevcut saklama kapları yalnızca fiziksel koruma sağlar, ancak süre takibi sunmaz. VacuumFresh bu sorunu iki katmanda çözer:</p>
 
             <div className="feature-list">
               <div className="feature-item">
@@ -62,7 +62,7 @@ const SmartCounter = () => {
               <div className="feature-item">
                 <div className="feature-text">
                   <h4>Dijital Çözüm</h4>
-                  <p>HomeWhiz entegrasyonu ile gıdanın saklanma süresi kaydedilir ve kullanıcıya süre yaklaşınca bildirim gönderilir.</p>
+                  <p>Mobil uygulama entegrasyonu ile gıdanın saklanma süresi kaydedilir ve kullanıcıya süre yaklaşınca bildirim gönderilir.</p>
                 </div>
               </div>
             </div>
